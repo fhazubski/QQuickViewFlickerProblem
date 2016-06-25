@@ -12,13 +12,16 @@ Widget::Widget(QWidget *parent) :
     connect(ui->hideQuickViewButton, SIGNAL(clicked()),
             this, SLOT(hideQuickView()));
 
-    QQuickView *view = new QQuickView();
-    view->setColor(Qt::transparent);
-    view->setSource(QUrl("qrc:/main.qml"));
-    m_quickWidget = QWidget::createWindowContainer(view, this);
+    m_quickWidget = new QQuickWidget();
+    m_quickWidget->setSource(QUrl("qrc:/main.qml"));
+    m_quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop);
+    m_quickWidget->setClearColor(Qt::transparent);
+
+    QMetaObject::invokeMethod(m_quickWidget->rootObject(), "setSize",
+        Q_ARG(QVariant, ui->stackedLayoutWidget->size()));
 
     ui->stackedLayout->setStackingMode(QStackedLayout::StackAll);
-    ui->stackedLayout->addWidget(new QOpenGLWidget(this));
+
     ui->stackedLayout->addWidget(m_quickWidget);
 }
 

@@ -39,7 +39,7 @@
     <string>HideQuickView</string>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QWidget" name="stackedLayoutWidget">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -49,6 +49,22 @@
     </rect>
    </property>
    <layout class="QStackedLayout" name="stackedLayout"/>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>10</y>
+     <width>121</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Widget placed underneath QML view</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

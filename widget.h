@@ -2,8 +2,9 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QQuickView>
-#include <QOpenGLWidget>
+#include <QStackedLayout>
+#include <QQuickWidget>
+#include <QQuickItem>
 
 namespace Ui {
 class Widget;
@@ -23,7 +24,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
-    QWidget *m_quickWidget;
+    QQuickWidget *m_quickWidget;
 
 };
 

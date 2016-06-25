@@ -2,7 +2,11 @@ import QtQuick 2.0
 
 Item {
     id: mainObject
-    anchors.fill: parent
+
+    function setSize(size) {
+        width = size.width
+        height = size.height
+    }
 
     Rectangle {
         width: 100
@@ -10,9 +14,12 @@ Item {
         color: "red"
     }
 
-//    Text {
-//        anchors.centerIn: parent
-//        text: "QML Text element"
-//        font.pixelSize: 14
-//    }
+    Rectangle {
+        id: frame
+        anchors.fill: parent
+        anchors.margins: border.width
+        color: "transparent"
+        border.width: 1
+        border.color: "black"
+    }
 }
